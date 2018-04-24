@@ -1,6 +1,7 @@
 // user.js
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var uniqueValidator = require('mongoose-unique-validator');
 
 // Define collection and schema for Users
 let User = new Schema(
@@ -15,7 +16,7 @@ let User = new Schema(
     gender: String,
     status: String,
     experiences: Array,
-    emailaddress: String,
+    emailaddress: { type: String, index: { unique: true, dropDups: true } },
     password: String,
     price_level: Number,
     rating: Number,
