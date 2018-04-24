@@ -8,7 +8,7 @@
     "server-dev": "nodemon server/index.js",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "start": "npm run react-dev && npm run server-dev"
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
