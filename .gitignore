@@ -6,8 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # Remove my configurations
-config.js
-bundle.js
+# config.js
+# bundle.js
 
 
 # Runtime data
