@@ -7,6 +7,7 @@ const Agenda = require('../../database/models/agenda');
 
 var bcrypt = require('bcrypt');
 router.get('/', (req, res, next) => {
+  console.log('in agenda get ', req);
   Agenda.find(function(err, itms) {
     if (err) {
       console.log(err);
@@ -25,6 +26,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/add', (req, res) => {
+  console.log('in agenda add ', req);
   var agenda = new Agenda(req.body);
   var city = encodeURI(req.body.city);
   var state = encodeURI(req.body.state);

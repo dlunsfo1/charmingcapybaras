@@ -24,6 +24,7 @@ router.get(
 );
 
 router.get('/user', (req, res, next) => {
+  console.log('req to user being made ', req);
   User.find({}, 'email', function(err, itms) {
     if (err) {
       console.log(err);
