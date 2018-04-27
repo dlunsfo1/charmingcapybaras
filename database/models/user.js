@@ -1,5 +1,6 @@
 // user.js
 var mongoose = require('mongoose');
+<<<<<<< HEAD
 // var userSchema = mongoose.Schema;
 var bcrypt = require('bcrypt-nodejs');
 var crypto = require('crypto');
@@ -66,3 +67,36 @@ var userSchema = new mongoose.Schema({
 // User.plugin(uniqueValidator);
 
 module.exports = mongoose.model('User', userSchema);
+=======
+var Schema = mongoose.Schema;
+var uniqueValidator = require('mongoose-unique-validator');
+
+// Define collection and schema for Users
+let User = new Schema(
+  {
+    firstName: String,
+    lastName: String,
+    address: String,
+    telephone: String,
+    city: String,
+    state: String,
+    zipCode: String,
+    gender: String,
+    status: String,
+    experiences: Array,
+    emailaddress: { type: String, index: { unique: true, dropDups: true } },
+    password: String,
+    price_level: Number,
+    rating: Number,
+    lat: Number,
+    lng: Number,
+    agenda: Array,
+    admin: Boolean
+  },
+  {
+    collection: 'users'
+  }
+);
+
+module.exports = mongoose.model('User', User);
+>>>>>>> 8cef762676fefdf75398e3ac266f34c52cda0797

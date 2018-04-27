@@ -6,7 +6,11 @@ yarn-debug.log*
 yarn-error.log*
 
 # Remove my configurations
+<<<<<<< HEAD
 
+=======
+config.js
+>>>>>>> 8cef762676fefdf75398e3ac266f34c52cda0797
 
 
 # Runtime data

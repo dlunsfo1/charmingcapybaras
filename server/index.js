@@ -3,11 +3,14 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/index');
+<<<<<<< HEAD
 var session = require('express-session');
 var util = require('./../helpers/user-status');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
 
+=======
+>>>>>>> 8cef762676fefdf75398e3ac266f34c52cda0797
 // const worker = require('../workers/agenda-helper'); // chron job
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
