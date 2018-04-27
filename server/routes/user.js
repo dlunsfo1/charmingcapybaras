@@ -24,7 +24,20 @@ router.get(
 );
 
 router.get('/user', (req, res, next) => {
-  console.log('req to user being made ', req);
+  console.log('req to user being made ');
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  res.header(
+    'Access-Control-Allow-Methods',
+    'GET',
+    'PUT',
+    'POST',
+    'DELETE',
+    'OPTIONS'
+  );
   User.find({}, 'email', function(err, itms) {
     if (err) {
       console.log(err);

@@ -7,10 +7,6 @@ const Agenda = require('../../database/models/agenda');
 
 var bcrypt = require('bcrypt');
 
-var config = {
-  headers: { 'X-My-Custom-Header': 'Header-Value' }
-};
-
 // agendas retrieve 'get'
 
 router.get('/', (req, res, next) => {
