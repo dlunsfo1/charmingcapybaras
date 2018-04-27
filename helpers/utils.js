@@ -3,7 +3,9 @@ var axios = require('axios');
 const _ = require('underscore');
 var config = require('../config/config');
 
-mongoose.connect(process.env.MONGOOSE);
+mongoose.connect(
+  'mongodb://fontmonger:Pr3tty1nPinK@ds121599.mlab.com:21599/rpt05'
+);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 var Agenda = require('./../database/models/agenda');
