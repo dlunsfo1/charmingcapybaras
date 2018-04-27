@@ -9,7 +9,8 @@ var cookieParser = require('cookie-parser');
 var passport = require('passport');
 
 // const worker = require('../workers/agenda-helper'); // chron job
-
+require('dotenv').config();
+const PORT = process.env.PORT || 3000;
 // call express
 const app = express();
 session;
@@ -42,6 +43,7 @@ app.get('*', util.checkUser, function(request, response) {
   response.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
 });
 
-app.listen(3000, () => {
-  console.log('Listening to port 3000...');
+app.listen(PORT, function() {
+  console.log(`listening on port ${PORT}`);
+  console.log('port is ', PORT);
 });
