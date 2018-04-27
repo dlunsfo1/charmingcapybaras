@@ -14,7 +14,7 @@ var Agenda = require('./../database/models/agenda');
 //HOST
 var getUserAgenda = () => {
   axios
-    .get('/agendas')
+    .get('http://www.fridayhero.today/agendas')
     .then(response => {
       response.data.map(user => {
         return axios
