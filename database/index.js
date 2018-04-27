@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGOOSE);
+mongoose.connect(
+  'mongodb://fontmonger:Pr3tty1nPinK@ds121599.mlab.com:21599/rpt05'
+);
 // const User = require('./models/user');
 const Agenda = require('./models/agenda');
 
