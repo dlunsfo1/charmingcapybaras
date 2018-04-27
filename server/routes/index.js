@@ -33,7 +33,9 @@ router.post('/add', (req, res) => {
 
   axios
     .get(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${address},${city},${state}&key=${geocode_api}`
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${address},${city},${state}&key=${
+        process.env.GOOGLE_GEO
+      }`
     )
     .then(response => {
       // get the location back in coordinates

@@ -6,15 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Remove my configurations
-<<<<<<< HEAD
-
-=======
-config.js
-<<<<<<< HEAD
->>>>>>> 8cef762676fefdf75398e3ac266f34c52cda0797
-=======
-# bundle.js
->>>>>>> add-username-to-db-001
 
 
 # Runtime data
