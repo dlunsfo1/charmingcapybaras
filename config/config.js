@@ -5,7 +5,7 @@ module.exports = {
   // if you are using the paring stations, the password is `student`
   // if you do not have a password, delete this key/value pair from
   // the object
-  database: '',
+  database: 'mongodb://fontmonger:Pr3tty1nPinK@ds121599.mlab.com:21599/rpt05',
   mail_user: 'rpt05capybaras@gmail.com',
   mail_pwd: 'hackreactor',
   google_places_api: 'AIzaSyDAhznStI-GlQl73G3mQYVL9vltK1kw28g',

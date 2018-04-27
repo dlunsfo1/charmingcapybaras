@@ -3,13 +3,12 @@ var axios = require('axios');
 const _ = require('underscore');
 var config = require('../config/config');
 
-mongoose.connect(
-  'mongodb://fontmonger:Pr3tty1nPinK@ds121599.mlab.com:21599/rpt05'
-);
+const config = require('./../config/config');
+mongoose.connect(`${config.database}`);
+
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 var Agenda = require('./../database/models/agenda');
-//process.env.MONGOOSE
 
 //HOST
 var getUserAgenda = () => {
