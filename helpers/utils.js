@@ -7,14 +7,13 @@ mongoose.connect(process.env.MONGOOSE);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 var Agenda = require('./../database/models/agenda');
+//process.env.MONGOOSE
 
+//HOST
 var getUserAgenda = () => {
   axios
-    .get('http://localhost:3000/agendas')
+    .get(`${process.env.HOST}/agendas`)
     .then(response => {
-      // console.log('getUserAgenda');
-      // console.log('response from getUserAgenda', response.data);
-      // console.log('number of records ', response.data.length);
       response.data.map(user => {
         return axios
           .get(
@@ -22,7 +21,7 @@ var getUserAgenda = () => {
               user.lat
             },${user.lng}&radius=1500&maxprice=${
               user.price_level
-            }&type=restaurant&key=${config.google_places_api}`
+            }&type=restaurant&key=${process.env.GOOGLE_PLACES}`
           )
           .then(response => {
             // console.log(
@@ -52,7 +51,7 @@ var getUserAgenda = () => {
               .get(
                 `https://maps.googleapis.com/maps/api/place/details/json?placeid=${
                   venue[0].place_id
-                }&key=${config.google_places_api}`
+                }&key=${process.env.GOOGLE_PLACES}`
               )
               .then(response => {
                 console.log('in the details response', venue[0].place_id);
@@ -62,7 +61,7 @@ var getUserAgenda = () => {
                 // return venueDetails;
                 return axios
                   .get(
-                    `https://api.darksky.net/forecast/${config.darksky}/${
+                    `https://api.darksky.net/forecast/${process.env.DARKSKY}/${
                       user.lat
                     },${user.lng}`
                   )

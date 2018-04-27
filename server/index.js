@@ -7,8 +7,11 @@ var session = require('express-session');
 var util = require('./../helpers/user-status');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
-
-const worker = require('../workers/agenda-helper'); // chron job
+if (process.env.START_CHRON === 'TRUE') {
+  const worker = require('../workers/agenda-helper');
+  const notifify = require('./../workers/notification-helper');
+}
+// const worker = require('../workers/agenda-helper'); // chron job
 
 // call express
 const app = express();
