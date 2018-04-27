@@ -10,7 +10,7 @@ var passport = require('passport');
 
 if (process.env.START_CHRON === 'TRUE') {
   const worker = require('../workers/agenda-helper');
-  const notifify = require('./../workers/notification-helper');
+  // const notifify = require('./../workers/notification-helper');
 }
 
 // const worker = require('../workers/agenda-helper'); // chron job
