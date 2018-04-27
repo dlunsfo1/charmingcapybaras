@@ -6,8 +6,28 @@ const axios = require('axios');
 const Agenda = require('../../database/models/agenda');
 
 var bcrypt = require('bcrypt');
+
+var config = {
+  headers: { 'X-My-Custom-Header': 'Header-Value' }
+};
+
+// agendas retrieve 'get'
+
 router.get('/', (req, res, next) => {
-  console.log('in agenda get ', req);
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  res.header(
+    'Access-Control-Allow-Methods',
+    'GET',
+    'PUT',
+    'POST',
+    'DELETE',
+    'OPTIONS'
+  );
+  console.log('in agenda get ');
   Agenda.find(function(err, itms) {
     if (err) {
       console.log(err);

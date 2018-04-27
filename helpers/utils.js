@@ -12,7 +12,7 @@ var Agenda = require('./../database/models/agenda');
 //HOST
 var getUserAgenda = () => {
   axios
-    .get(`${process.env.HOST}/agendas`)
+    .get('/agendas')
     .then(response => {
       response.data.map(user => {
         return axios
