@@ -21,7 +21,5 @@ exports.newSession = function(request, response, user) {
     console.log('new session started ', request.session);
     request.session.user = true;
     return;
-    // request.session.authenticated = true;
-    // return response.redirect(301, '/');
   });
 };

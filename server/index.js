@@ -8,9 +8,16 @@ var session = require('express-session');
 var util = require('./../helpers/user-status');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
+<<<<<<< HEAD
 
 =======
 >>>>>>> 8cef762676fefdf75398e3ac266f34c52cda0797
+=======
+if (process.env.START_CHRON === 'TRUE') {
+  const worker = require('../workers/agenda-helper');
+  const notifify = require('./../workers/notification-helper');
+}
+>>>>>>> add-username-to-db-001
 // const worker = require('../workers/agenda-helper'); // chron job
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;

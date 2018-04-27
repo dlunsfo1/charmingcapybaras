@@ -1,26 +1,26 @@
 const nodemailer = require('nodemailer');
 //const archive = require('../../helpers/email-helper');
 var axios = require('axios');
-const config = require('../../config/config');
-var cron = require('cron');
-var CronJob = require('cron').CronJob;
-
-new CronJob(
-  '*/1 * * * ',
-  function() {
-    console.log('cronjob running');
-    getEmailAddresses();
-  },
-  null,
-  true,
-  'America/Los_Angeles'
-);
+// const config = require('../../config/config');
+// var cron = require('cron');
+// var CronJob = require('cron').CronJob;
+// // '*/1 * * * '
+// new CronJob(
+//   process.env.EMAIL_CHRON,
+//   function() {
+//     console.log('cronjob running');
+//     getEmailAddresses();
+//   },
+//   null,
+//   true,
+//   'America/Los_Angeles'
+// );
 
 //let result = archive.getEmails();
 
 var getEmailAddresses = () => {
   axios
-    .get('http://localhost:3000/api/user')
+    .get(`${process.env.HOST}/api/user`)
     .then(response => {
       console.log('Retrieved emails');
       //return response.data[1].emailaddress;
@@ -35,23 +35,26 @@ var getEmailAddresses = () => {
 let sendEmails = email => {
   let transporter = nodemailer.createTransport(
     {
-      host: 'smtp.gmail.com',
+      host: process.env.MAIL_SRV,
       port: 465,
       secure: true,
       auth: {
-        user: '',
-        pass: ''
+        user: process.env.MAIL_USR,
+        pass: process.env.MAIL_PWD
       }
     },
     {
-      from: 'Capybaras <no-reply@capybaras.com>'
+      from: 'Friday Hero <BeAHero@fridayhero.today>'
     }
   );
 
   let message = {
     to: `<${email}>`,
-    subject: 'Friday Hero Notification',
-    text: 'You have a new notification!'
+    subject: "It's Friday, we know what you're doing today.",
+    text:
+      "Visit http://www.fridayhero.today/agenda to see find out what you're doing today.",
+    html:
+      '<p>Visit <a href="http://www.fridayhero.today/agenda">http://www.fridayhero.today/agenda</a> to see find out what you\'re doing today.</p>'
   };
 
   transporter.sendMail(message, (error, info) => {
@@ -66,3 +69,6 @@ let sendEmails = email => {
 };
 
 // getEmailAddresses();
+module.exports = {
+  getEmailAddresses
+};
