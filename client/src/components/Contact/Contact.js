@@ -7,10 +7,17 @@ import Aux from './../../hoc/Aux/Aux';
 const Contact = props => {
   console.log('PROPS ', props.navigation);
   return (
+<<<<<<< HEAD
     <Aux>
       <header className="bg-wrapper">
         <div className="container">
           <Navigation topNav={props.navigation} auth={props.auth} />
+=======
+    <div>
+      <header className="bg-wrapper">
+        <div className="container">
+          <Navigation topNav={props.navigation} />
+>>>>>>> Refactor header of the the single files
         </div>
       </header>
 
@@ -57,7 +64,11 @@ const Contact = props => {
         </div>
       </section>
       <Footer bottomNav={props.navigation} />
+<<<<<<< HEAD
     </Aux>
+=======
+    </div>
+>>>>>>> Refactor header of the the single files
   );
 };
 
